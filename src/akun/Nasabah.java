@@ -6,29 +6,29 @@
 package akun;
 
 import java.util.ArrayList;
-
+import javafx.beans.property.StringProperty;  
 /**
  *
  * @author ASUS
  */
 public abstract class Nasabah {
     
-    protected String nama, alamat;
+    protected StringProperty nama, alamat;
     protected ArrayList<Rekening> rekening;
     
-    public String getNama() {
+    public StringProperty getNama() {
         return nama;
     }
 
-    public void setNama(String nama) {
+    public void setNama(StringProperty nama) {
         this.nama = nama;
     }
 
-    public String getAlamat() {
+    public StringProperty getAlamat() {
         return alamat;
     }
 
-    public void setAlamat(String alamat) {
+    public void setAlamat(StringProperty alamat) {
         this.alamat = alamat;
     }
 
@@ -40,7 +40,7 @@ public abstract class Nasabah {
         this.rekening = rekening;
     }
 
-    public Nasabah(String nama, String alamat, ArrayList<Rekening> rekening) {
+    public Nasabah(StringProperty nama, StringProperty alamat, ArrayList<Rekening> rekening) {
         this.nama = nama;
         this.alamat = alamat;
         this.rekening = rekening;
