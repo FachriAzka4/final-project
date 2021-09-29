@@ -51,4 +51,12 @@ public abstract class Nasabah {
     }
     
     abstract public void print();
+    
+    public StringProperty namaProperty(){
+        return nama;
+    }
+    
+    public StringProperty alamatProperty(){
+        return nama;
+    }
 }
