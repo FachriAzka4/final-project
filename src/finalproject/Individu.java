@@ -50,4 +50,17 @@ public class Individu extends Nasabah {
     public LongProperty npwpProperty(){
         return npwp;
     }
+    public void print() {
+        System.out.println("Nama: " + getNama());
+        System.out.println("Alamat: " + getAlamat());
+        System.out.println("NIK: " + getNik());
+        System.out.println("NPWP: "+ getNpwp());
+        System.out.println("===========================================");
+        String infoRekening=String.format("No Rekening"+"%26s","Saldo");
+        System.out.println(infoRekening);
+        System.out.println("===========================================");
+        for(Rekening rekening : getRekening()){
+            System.out.printf("%s%34.2f\n",rekening.getNoRekening(),rekening.getSaldo());
+        }
+    }
 }
