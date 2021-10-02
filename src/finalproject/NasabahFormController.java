@@ -196,9 +196,10 @@ public class NasabahFormController implements Initializable {
                 Long.parseLong(tfNik.getText()),
                 Long.parseLong(tfNpwp.getText()),        
                 tfNama.getText(),
+                Integer.parseInt(tfId.getText()),
                 tfAlamat.getText(),
-                new Rekening(Integer.parseInt(tfNoRek.getText()), Double.parseDouble(tfSaldo.getText())),
-                Integer.parseInt(tfId.getText())
+                new Rekening(Integer.parseInt(tfNoRek.getText()), Double.parseDouble(tfSaldo.getText()))
+                
                 );
         try {
             nfc.addNasabah(i);
