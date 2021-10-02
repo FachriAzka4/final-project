@@ -113,7 +113,6 @@
                                                       <TableView fx:id="tbNasabah" prefHeight="400.0" prefWidth="964.0">
                                                         <columns>
                                                           <TableColumn fx:id="cIId" prefWidth="112.33331298828125" text="ID Nasabah" />
-                                                            <TableColumn fx:id="clNoRek" prefWidth="175.66668701171875" text="No. Rekening" />
                                                           <TableColumn fx:id="clNama" prefWidth="151.33331298828125" text="Nama" />
                                                             <TableColumn fx:id="clAlamat" prefWidth="156.66668701171875" text="Alamat" />
                                                             <TableColumn fx:id="clNik" prefWidth="171.5" text="NIK" />
@@ -131,7 +130,7 @@
                                                          <children>
                                                             <TableView fx:id="tblRekening" prefHeight="239.0" prefWidth="550.0">
                                                               <columns>
-                                                                <TableColumn fx:id="clNoRek0" prefWidth="180.0" text="No. Rekening" />
+                                                                <TableColumn fx:id="clNoRek1" prefWidth="180.0" text="No. Rekening" />
                                                                 <TableColumn fx:id="colSaldo" prefWidth="370.0" text="Saldo" />
                                                               </columns>
                                                             </TableView>
@@ -243,7 +242,6 @@
                                                       <TableView fx:id="tblNasabahP" prefHeight="400.0" prefWidth="974.0">
                                                          <columns>
                                                             <TableColumn fx:id="cIdNasabah1" prefWidth="153.66665649414062" text="ID Nasabah" />
-                                                            <TableColumn fx:id="clNoRek1" prefWidth="181.33334350585938" text="No. Rekening" />
                                                             <TableColumn fx:id="clNama1" prefWidth="158.0" text="Nama" />
                                                             <TableColumn fx:id="clAlamat1" prefWidth="239.0" text="Alamat" />
                                                             <TableColumn fx:id="clNib" prefWidth="212.33331298828125" text="NIB" />
