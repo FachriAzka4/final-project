@@ -36,4 +36,17 @@ public class Perusahaan extends Nasabah {
     public LongProperty nibProperty(){
         return nib;
     }
+    public void print() {
+        System.out.println("Nama: " + getNama());
+        System.out.println("Alamat: " + getAlamat());
+        System.out.println("NIB: " + getNib());
+        System.out.println("===========================================");
+        String infoRekening=String.format("No Rekening"+"%26s","Saldo");
+        System.out.println(infoRekening);
+        System.out.println("===========================================");
+        for(Rekening rekening : getRekening()){
+            System.out.printf("%s%34.2f\n",rekening.getNoRekening(),rekening.getSaldo());
+        }
+
+    }
 }

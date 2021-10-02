@@ -56,25 +56,25 @@ public class NasabahDataModel {
     public void addNasabah(Perusahaan perusahaan) throws SQLException{
         String insertNasabah = "INSERT INTO Nasabah (idNasabah, nama, alamat)"
                 + " VALUES (?,?,?)";
-        String insert = "INSERT INTO  (idNasabah, nib)"
+        String insertPerusahaan = "INSERT INTO  (idNasabah, nib)"
                 + " VALUES (?,?)";
         String insertRekening = "INSERT INTO Rekening (noRekening, saldo, idNasabah)" 
                 + " VALUES (?,?,?)";
-        PreparedStatement stmtPerusahaan = conn.prepareStatement(insertNasabah);
-        stmtPerusahaan.setInt(1, perusahaan.getIdNasabah());
-        stmtPerusahaan.setString(2, perusahaan.getNama());
-        stmtPerusahaan.setString(3, perusahaan.getAlamat());
-        stmtPerusahaan.execute();
+        PreparedStatement stmtNasabah = conn.prepareStatement(insertNasabah);
+        stmtNasabah.setInt(1, perusahaan.getIdNasabah());
+        stmtNasabah.setString(2, perusahaan.getNama());
+        stmtNasabah.setString(3, perusahaan.getAlamat());
+        stmtNasabah.execute();
         
-        PreparedStatement stmtIndividual = conn.prepareStatement(insert);
-        stmtIndividual.setInt(1, perusahaan.getIdNasabah());
-        stmtIndividual.setLong(2, perusahaan.getNib());
-        stmtIndividual.execute();
+        PreparedStatement stmtPerusahaan = conn.prepareStatement(insertPerusahaan);
+        stmtPerusahaan.setInt(1, perusahaan.getIdNasabah());
+        stmtPerusahaan.setLong(2, perusahaan.getNib());
+        stmtPerusahaan.execute();
         
         PreparedStatement stmtRekening = conn.prepareStatement(insertRekening);
         stmtRekening.setInt(1, perusahaan.getRekening().get(0).getNoRekening());
-        stmtRekening.setDouble(3, perusahaan.getRekening().get(0).getSaldo());
-        stmtRekening.setInt(2, perusahaan.getIdNasabah());
+        stmtRekening.setDouble(2, perusahaan.getRekening().get(0).getSaldo());
+        stmtRekening.setInt(3, perusahaan.getIdNasabah());
         stmtRekening.execute();
     }
    public ObservableList<Individu> getIndividu(){
@@ -101,7 +101,7 @@ public class NasabahDataModel {
    }
    public ObservableList<Perusahaan> getPerusahaan(){
        ObservableList<Perusahaan> data = FXCollections.observableArrayList();
-       String sql="SELECT `idNasabah`, `nama`,`alamat`, `nib` "
+       String sql="SELECT `nib`, `nama`, `idNasabah`, `alamat` "
                + "FROM `Nasabah` NATURAL JOIN `Perusahaan` "
                + "ORDER BY nama";
        try {

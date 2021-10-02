@@ -193,7 +193,6 @@ public class NasabahFormController implements Initializable {
                 Integer.parseInt(tfId.getText()),
                 tfAlamat.getText(),
                 new Rekening(Integer.parseInt(tfNoRek.getText()), Double.parseDouble(tfSaldo.getText()))
-                
                 );
         try {
             nfc.addNasabah(i);
@@ -218,8 +217,7 @@ public class NasabahFormController implements Initializable {
             
         } catch (SQLException ex) {
             Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+        }    
     }
 
     @FXML
@@ -238,23 +236,63 @@ public class NasabahFormController implements Initializable {
     //corp
     @FXML
     void handleAddCorpAccountButton(ActionEvent event) {
-
+        try {
+            Rekening rek =  new Rekening(Integer.parseInt(tfNewNoRek1.getText()),
+                            Double.parseDouble(tfNewSaldo1.getText()));
+            
+            nfc.addRekening(Integer.parseInt(tfNewId1.getText()), rek);          
+            viewDataRekening(Integer.parseInt(tfNewId1.getText()));
+            btReload1.fire();
+            tfNewSaldo1.setText("");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void handleAddCorpHolderButton(ActionEvent event) {
-
+        Perusahaan i = new Perusahaan(
+                Long.parseLong(tfNib.getText()),
+                tfNama1.getText(),
+                Integer.parseInt(tfId1.getText()),
+                tfAlamat1.getText(),
+                new Rekening(Integer.parseInt(tfNoRek1.getText()), Double.parseDouble(tfSaldo1.getText()))
+                );
+        try {
+            nfc.addNasabah(i);
+            btReload1.fire();
+            btClear1.fire();
+        } catch (SQLException ex) {
+            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void handleCorpClearButton(ActionEvent event) {
-
+        try {
+            tfId1.setText("" + nfc.nextId());
+            tfNoRek1.setText(tfId.getText() + "01");
+            tfNama1.setText("");
+            tfAlamat1.setText("");
+            tfNib.setText("");
+            tfSaldo1.setText("");
             
+        } catch (SQLException ex) {
+            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void handleCorpReloadButton(ActionEvent event) {
-
+        ObservableList<Perusahaan> data = nfc.getPerusahaan();
+        clNib.setCellValueFactory(new PropertyValueFactory<>("nib"));
+        clNama1.setCellValueFactory(new PropertyValueFactory<>("nama"));
+        clAlamat1.setCellValueFactory(new PropertyValueFactory<>("alamat"));
+        cIdNasabah1.setCellValueFactory(new PropertyValueFactory<>("idNasabah"));
+        tblNasabahP.setItems(null);
+        tblNasabahP.setItems(data);
+        btAddRek.setDisable(true);
     }    
 
     @Override
