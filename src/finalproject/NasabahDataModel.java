@@ -79,7 +79,7 @@ public class NasabahDataModel {
     }
    public ObservableList<Individu> getIndividu(){
        ObservableList<Individu> data = FXCollections.observableArrayList();
-       String sql="SELECT `idNasabah`, `nama`,`alamat`, `nik`, `npwp` "
+       String sql="SELECT `nik`, `npwp`, `nama`, `idNasabah`, `alamat` "
                + "FROM `Nasabah` NATURAL JOIN `Individu` "
                + "ORDER BY nama";
        try {
