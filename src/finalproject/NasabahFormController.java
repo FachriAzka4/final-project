@@ -244,64 +244,23 @@ public class NasabahFormController implements Initializable {
     //corp
     @FXML
     void handleAddCorpAccountButton(ActionEvent event) {
-//        try {
-//            Rekening rek =  new Rekening(Integer.parseInt(tfNoRek1.getText()),
-//                            Double.parseDouble(tfSaldo1.getText()));
-//            
-//            nfc.addRekening(Integer.parseInt(tfId1.getText()), rek);          
-//            viewDataRekening(Integer.parseInt(tfId1.getText()));
-//            btReload1.fire();
-//            tfSaldo1.setText("");
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }
 
     @FXML
     void handleAddCorpHolderButton(ActionEvent event) {
-//        Perusahaan p = new Perusahaan(Integer.parseInt(tfIdNasabahP.getText()),
-//                tfNamaP.getText(),
-//                tfAlamatP.getText(),
-//                new Rekening(Integer.parseInt(tfNoRekeningP.getText()), Double.parseDouble(tfSaldoP.getText())),
-//                tfNib.getText());
-//        try {
-//            nfc.tambahNasabah(p);
-//            lblSaveStatusP.setText("Rekening berhasil dibuat");
-//            btnReloadP.fire();
-//            btnClearP.fire();
-//        } catch (SQLException ex) {
-//            lblSaveStatusP.setText("Rekening gagal dibuat");
-//            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }
 
     @FXML
     void handleCorpClearButton(ActionEvent event) {
-//        try {
-//            tfIdNasabahP.setText("" + nfc.nextIdNasabah());
-//            tfNoRekeningP.setText(tfIdNasabahP.getText() + "01");
-//            tfNamaP.setText("");
-//            tfAlamatP.setText("");
-//            tfNib.setText("");
-//            tfSaldoP.setText("");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
             
     }
 
     @FXML
     void handleCorpReloadButton(ActionEvent event) {
-//        ObservableList<Perusahaan> data = nfc.getPerusahaan();
-//        colIdNasabahP.setCellValueFactory(new PropertyValueFactory<>("IdNasabah"));
-//        colNamaP.setCellValueFactory(new PropertyValueFactory<>("nama"));
-//        colAlamatP.setCellValueFactory(new PropertyValueFactory<>("alamat"));
-//        colNib.setCellValueFactory(new PropertyValueFactory<>("nib"));
-//        colNumRekeningP.setCellValueFactory(new PropertyValueFactory<>("numRekening"));
-//        tblNasabahP.setItems(null);
-//        tblNasabahP.setItems(data);
-//        btnTambahRekeningP.setDisable(true);
+
     }    
 
     @Override
