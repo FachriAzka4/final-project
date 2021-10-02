@@ -3,34 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akun;
+package finalproject;
 
 import java.util.ArrayList;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
 
 /**
  *
- * @author ASUS
+ * @author theen
  */
-class Perusahaan extends Nasabah{
+public class Perusahaan extends Nasabah {
+    LongProperty nib;
 
-    public StringProperty nib;
-    
-    public String getNib() {
+    public Perusahaan(Long nib, String nama, Integer idNasabah, String alamat, ArrayList<Rekening> rekening) {
+        super(nama, idNasabah, alamat, rekening);
+        this.nib = new SimpleLongProperty(nib);
+    }
+    public Perusahaan(Long nib, String nama, Integer idNasabah, String alamat, Rekening rekening) {
+        super(nama, idNasabah, alamat, rekening);
+        this.nib = new SimpleLongProperty(nib);
+    }
+
+    public Long getNib() {
         return nib.get();
     }
 
-    public void setNib(String nib) {
+    public void setNib(Long nib) {
         this.nib.set(nib);
     }
-
-    public Perusahaan(StringProperty nama, StringProperty alamat, ArrayList<Rekening> rekening, StringProperty nib) {
-        super(nama, alamat, rekening);
-        this.nib = nib;
-    }
     
-    public StringProperty nibProperty(){
+    public LongProperty nibProperty(){
         return nib;
     }
-  
 }

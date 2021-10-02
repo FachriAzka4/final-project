@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akun;
+package finalproject;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /**
  *
@@ -16,9 +18,9 @@ public class Rekening {
     private IntegerProperty noRekening;
     private DoubleProperty saldo;
 
-    public Rekening(IntegerProperty noRekening, DoubleProperty saldo) {
-        this.noRekening = noRekening;
-        this.saldo = saldo;
+    public Rekening(Integer noRekening, Double saldo) {
+        this.noRekening = new SimpleIntegerProperty(noRekening);
+        this.saldo = new SimpleDoubleProperty(saldo);
     }
 
     public Integer getNoRekening() {
@@ -37,10 +39,10 @@ public class Rekening {
         this.saldo.set(saldo);
     }
     
-    public void tambahSaldo(double jumlah){
+    public void tambahSaldo(Double jumlah){
         this.setSaldo(getSaldo() + jumlah);
     }
-    public void tarikTunai(double jumlah){
+    public void tarikTunai(Double jumlah){
         this.setSaldo(getSaldo() - jumlah);
     }
 }

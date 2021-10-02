@@ -3,18 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akun;
+package finalproject;
 
 import java.util.ArrayList;
-import javafx.beans.property.StringProperty;  
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 /**
  *
- * @author ASUS
+ * @author theen
  */
 public abstract class Nasabah {
-    
-    protected StringProperty nama, alamat;
-    protected ArrayList<Rekening> rekening;
+    private StringProperty nama;
+    private IntegerProperty idNasabah;
+    private StringProperty alamat;
+    ArrayList <Rekening> rekening = new ArrayList<Rekening>();
+
+    public Nasabah(String nama, Integer idNasabah, String alamat, ArrayList<Rekening> rekening) {
+        this.nama = new SimpleStringProperty(nama);
+        this.idNasabah = new SimpleIntegerProperty(idNasabah);
+        this.alamat = new SimpleStringProperty(alamat);
+        this.rekening = rekening;
+    }
+    public Nasabah(String nama, Integer idNasabah, String alamat, Rekening rekening) {
+        this.nama = new SimpleStringProperty(nama);
+        this.idNasabah = new SimpleIntegerProperty(idNasabah);
+        this.alamat = new SimpleStringProperty(alamat);
+        this.rekening.add(rekening);
+    }
     
     public String getNama() {
         return nama.get();
@@ -22,6 +39,14 @@ public abstract class Nasabah {
 
     public void setNama(String nama) {
         this.nama.set(nama);
+    }
+
+    public Integer getIdNasabah() {
+        return idNasabah.get();
+    }
+
+    public void setIdNasabah(Integer idNasabah) {
+        this.idNasabah.set(idNasabah);
     }
 
     public String getAlamat() {
@@ -32,31 +57,31 @@ public abstract class Nasabah {
         this.alamat.set(alamat);
     }
 
-    public ArrayList<Rekening> getRekening(){
+    public ArrayList<Rekening> getRekening() {
         return rekening;
     }
-    
-    public void setRekening(ArrayList<Rekening> rekening){
+
+    public void setRekening(ArrayList<Rekening> rekening) {
         this.rekening = rekening;
     }
-
-    public Nasabah(StringProperty nama, StringProperty alamat, ArrayList<Rekening> rekening) {
-        this.nama = nama;
-        this.alamat = alamat;
-        this.rekening = rekening;
+    
+    public void tambahRekening(){
+        
     }
 
-    public void tambahRekening(Rekening rek){
-        rekening.add(rek);
-    }
-    
-    abstract public void print();
-    
     public StringProperty namaProperty(){
         return nama;
     }
     
+    public IntegerProperty idNasabahProperty(){
+        return idNasabah;
+    }
+    
     public StringProperty alamatProperty(){
-        return nama;
+        return alamat;
+    }
+    
+    public void tambahRekening(Rekening rek){
+        this.rekening.add(rek);
     }
 }

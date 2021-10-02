@@ -1,0 +1,209 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="finalproject.NasabahFormController">
+   <children>
+      <MenuBar layoutX="3.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="22.0" prefHeight="698.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Individu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="690.0" prefWidth="1282.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <AnchorPane prefHeight="690.0" prefWidth="269.0" style="-fx-background-color: #284b63;">
+                                 <children>
+                                    <Label layoutX="44.0" layoutY="32.0" text="Sistem Nasabah" textFill="WHITE">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tfId" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" promptText="ID Nasabah" />
+                                    <TextField fx:id="tfNama" layoutX="30.0" layoutY="139.0" prefHeight="25.0" prefWidth="200.0" promptText="Nama" />
+                                    <TextField fx:id="tfAlamat" layoutX="30.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" promptText="Alamat" />
+                                    <TextField fx:id="tfNik" layoutX="30.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" promptText="NIK" />
+                                    <TextField fx:id="tfNpwp" layoutX="30.0" layoutY="265.0" prefHeight="25.0" prefWidth="200.0" promptText="NPWP" />
+                                    <TextField fx:id="tfNoRek" layoutX="30.0" layoutY="349.0" prefHeight="25.0" prefWidth="200.0" promptText="No. Rekening" />
+                                    <TextField fx:id="tfSaldo" layoutX="30.0" layoutY="388.0" prefHeight="25.0" prefWidth="200.0" promptText="Saldo" />
+                                    <Button fx:id="tbAddNasabah" layoutX="25.0" layoutY="560.0" mnemonicParsing="false" onAction="#addNasabahHandler" prefHeight="25.0" prefWidth="200.0" text="Tambah Nasabah" />
+                                    <Button fx:id="tbClear" layoutX="25.0" layoutY="604.0" mnemonicParsing="false" onAction="#clearHandler" prefHeight="25.0" prefWidth="90.0" text="Clear" />
+                                    <Button fx:id="tbReload" layoutX="134.0" layoutY="603.0" mnemonicParsing="false" onAction="#reloadHandler" prefHeight="25.0" prefWidth="90.0" text="Reload" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="690.0" prefWidth="1026.0">
+                                 <children>
+                                    <VBox layoutX="-5.0" layoutY="-1.0" prefHeight="690.0" prefWidth="1026.0">
+                                       <children>
+                                          <AnchorPane prefHeight="460.0" prefWidth="1026.0" style="-fx-background-color: #d9d9d9;">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <TableView fx:id="clNpwp" layoutY="-3.0" prefHeight="461.0" prefWidth="1026.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="clId" prefWidth="139.33334350585938" text="ID Nasabah" />
+                                                    <TableColumn fx:id="clNama" prefWidth="159.66665649414062" text="Nama" />
+                                                      <TableColumn fx:id="ClAlamat" prefWidth="236.0" text="Alamat" />
+                                                      <TableColumn fx:id="clNoRek" prefWidth="161.0" text="No. Rekening" />
+                                                      <TableColumn fx:id="clNik" prefWidth="166.0" text="NIK" />
+                                                      <TableColumn fx:id="clNpwp" prefWidth="164.0" text="NPWP" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <HBox prefHeight="230.0" prefWidth="1026.0">
+                                             <children>
+                                                <AnchorPane prefHeight="230.0" prefWidth="506.0" style="-fx-background-color: #d9d9d9;">
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <children>
+                                                      <TableView layoutX="3.0" layoutY="-1.0" prefHeight="230.0" prefWidth="498.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="clNoRek" prefWidth="253.0" text="No. Rekening" />
+                                                          <TableColumn fx:id="clSaldo" prefWidth="243.0" text="Saldo" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="230.0" prefWidth="521.0">
+                                                   <children>
+                                                      <TextField fx:id="tfNewId" layoutX="80.0" layoutY="28.0" prefHeight="25.0" prefWidth="350.0" promptText="ID Nasabah" />
+                                                      <TextField fx:id="tfNewNoRek" layoutX="80.0" layoutY="66.0" prefHeight="25.0" prefWidth="350.0" promptText="No. Rekening Baru" />
+                                                      <TextField fx:id="tfNewSaldo" layoutX="80.0" layoutY="102.0" prefHeight="25.0" prefWidth="350.0" promptText="Saldo Baru" />
+                                                      <Button fx:id="tbAddRek" layoutX="80.0" layoutY="154.0" mnemonicParsing="false" onAction="#addRekHandler" prefHeight="25.0" prefWidth="350.0" text="Tambah Rekening Baru" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Perusahaan">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="530.0">
+                     <children>
+                        <HBox prefHeight="690.0" prefWidth="1282.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <AnchorPane prefHeight="690.0" prefWidth="269.0" style="-fx-background-color: #284b63;">
+                                 <children>
+                                    <Label layoutX="44.0" layoutY="32.0" text="Sistem Nasabah" textFill="WHITE">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tfId1" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" promptText="ID Nasabah" />
+                                    <TextField fx:id="tfNama1" layoutX="30.0" layoutY="139.0" prefHeight="25.0" prefWidth="200.0" promptText="Nama" />
+                                    <TextField fx:id="tfAlamat1" layoutX="30.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" promptText="Alamat" />
+                                    <TextField fx:id="tfNik1" layoutX="30.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" promptText="NIB" />
+                                    <TextField fx:id="tfNoRek1" layoutX="30.0" layoutY="349.0" prefHeight="25.0" prefWidth="200.0" promptText="No. Rekening" />
+                                    <TextField fx:id="tfSaldo1" layoutX="30.0" layoutY="388.0" prefHeight="25.0" prefWidth="200.0" promptText="Saldo" />
+                                    <Button fx:id="tbAddNasabah1" layoutX="25.0" layoutY="560.0" mnemonicParsing="false" onAction="#addNasabahHandler1" prefHeight="25.0" prefWidth="200.0" text="Tambah Nasabah" />
+                                    <Button fx:id="tbClear1" layoutX="25.0" layoutY="604.0" mnemonicParsing="false" onAction="#clearHandler1" prefHeight="25.0" prefWidth="90.0" text="Clear" />
+                                    <Button fx:id="tbReload1" layoutX="134.0" layoutY="603.0" mnemonicParsing="false" onAction="#reloadHandler1" prefHeight="25.0" prefWidth="90.0" text="Reload" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="690.0" prefWidth="1026.0">
+                                 <children>
+                                    <VBox layoutX="-5.0" layoutY="-1.0" prefHeight="690.0" prefWidth="1026.0">
+                                       <children>
+                                          <AnchorPane prefHeight="460.0" prefWidth="1026.0" style="-fx-background-color: #d9d9d9;">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <TableView fx:id="clNpwp1" layoutY="-3.0" prefHeight="461.0" prefWidth="1026.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="clId1" prefWidth="139.33334350585938" text="ID Nasabah" />
+                                                      <TableColumn fx:id="clNama1" prefWidth="185.33331298828125" text="Nama" />
+                                                      <TableColumn fx:id="ClAlamat1" prefWidth="230.66668701171875" text="Alamat" />
+                                                      <TableColumn fx:id="clNoRek" prefWidth="219.0" text="No. Rekening" />
+                                                      <TableColumn fx:id="clNib" prefWidth="246.6666259765625" text="NIB" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <HBox prefHeight="230.0" prefWidth="1026.0">
+                                             <children>
+                                                <AnchorPane prefHeight="230.0" prefWidth="506.0" style="-fx-background-color: #d9d9d9;">
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <children>
+                                                      <TableView layoutX="3.0" layoutY="-1.0" prefHeight="230.0" prefWidth="498.0">
+                                                         <columns>
+                                                            <TableColumn fx:id="clNoRek1" prefWidth="253.0" text="No. Rekening" />
+                                                            <TableColumn fx:id="clSaldo1" prefWidth="243.0" text="Saldo" />
+                                                         </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="230.0" prefWidth="521.0">
+                                                   <children>
+                                                      <TextField fx:id="tfNewId1" layoutX="80.0" layoutY="28.0" prefHeight="25.0" prefWidth="350.0" promptText="ID Nasabah" />
+                                                      <TextField fx:id="tfNewNoRek1" layoutX="80.0" layoutY="66.0" prefHeight="25.0" prefWidth="350.0" promptText="No. Rekening Baru" />
+                                                      <TextField fx:id="tfNewSaldo1" layoutX="80.0" layoutY="102.0" prefHeight="25.0" prefWidth="350.0" promptText="Saldo Baru" />
+                                                      <Button fx:id="tbAddRek1" layoutX="80.0" layoutY="154.0" mnemonicParsing="false" onAction="#addRekHandler1" prefHeight="25.0" prefWidth="350.0" text="Tambah Rekening Baru" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="1074.0" layoutY="4.0" text="Status :" />
+      <Label fx:id="DBStatus" layoutX="1123.0" layoutY="5.0" prefHeight="17.0" prefWidth="72.0" />
+   </children>
+</AnchorPane>
