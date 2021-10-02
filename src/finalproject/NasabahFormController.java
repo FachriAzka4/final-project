@@ -65,7 +65,7 @@ public class NasabahFormController implements Initializable {
     private TableColumn<Individu, Integer> cIId;
 
     @FXML
-    private TableColumn<Individu, Integer> clNoRek;
+    private TableColumn<Individu, Integer> clNoRek1;
 
     @FXML
     private TableColumn<Individu, String> clNama;
@@ -81,9 +81,6 @@ public class NasabahFormController implements Initializable {
 
     @FXML
     private TableView<Rekening> tblRekening;
-
-    @FXML
-    private TableColumn<Nasabah, Integer> clNoRek0;
 
     @FXML
     private TableColumn<Nasabah, Double> colSaldo;
@@ -137,7 +134,7 @@ public class NasabahFormController implements Initializable {
     private TableColumn<Perusahaan, Perusahaan> cIdNasabah1;
 
     @FXML
-    private TableColumn<Perusahaan, Integer> clNoRek1;
+    private TableColumn<Perusahaan, Integer> clNoRek2;
 
     @FXML
     private TableColumn<Perusahaan, String> clNama1;
@@ -150,9 +147,6 @@ public class NasabahFormController implements Initializable {
 
     @FXML
     private TableView<Rekening> tblRekeningP;
-
-    @FXML
-    private TableColumn<Nasabah, Integer> clNoRek2;
 
     @FXML
     private TableColumn<Nasabah, Double> clSaldo1;
@@ -291,7 +285,7 @@ public class NasabahFormController implements Initializable {
     
     public void viewDataRekening(int idNasabah){
         ObservableList<Rekening> data = nfc.getRekening(idNasabah);
-        clNoRek.setCellValueFactory(new PropertyValueFactory<>("noRekening"));
+        clNoRek1.setCellValueFactory(new PropertyValueFactory<>("noRekening"));
         colSaldo.setCellValueFactory(new PropertyValueFactory<>("saldo"));
         tblRekening.setItems(null);
         tblRekening.setItems(data);
@@ -299,7 +293,7 @@ public class NasabahFormController implements Initializable {
     
     public void viewDataRekeningP(int idNasabah){
         ObservableList<Rekening> data = nfc.getRekening(idNasabah);
-        clNoRek1.setCellValueFactory(new PropertyValueFactory<>("noRekening"));
+        clNoRek2.setCellValueFactory(new PropertyValueFactory<>("noRekening"));
         clSaldo1.setCellValueFactory(new PropertyValueFactory<>("saldo"));
         tblRekeningP.setItems(null);
         tblRekeningP.setItems(data);
