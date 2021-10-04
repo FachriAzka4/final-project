@@ -5,6 +5,7 @@ Nama Anggota:
 3. Rizqy Farhan Thoriq  (0620101078) - update class agar kompatibel dengan javaFX
 
 ER Diagram
+
 erDiagram
           Nasabah ||..|| Individu : is
           Nasabah ||--|| Perusahaan : is
