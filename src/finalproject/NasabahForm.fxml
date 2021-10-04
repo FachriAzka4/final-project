@@ -25,12 +25,6 @@
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Transaksi">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Deposit" />
-                  <MenuItem mnemonicParsing="false" text="Tarik Tunai" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
@@ -128,7 +122,7 @@
                                                    <children>
                                                       <AnchorPane prefHeight="244.0" prefWidth="430.0" style="-fx-background-color: #062743;">
                                                          <children>
-                                                            <TableView fx:id="tblRekening" prefHeight="239.0" prefWidth="550.0">
+                                                            <TableView fx:id="tblRekening" layoutY="3.0" prefHeight="239.0" prefWidth="550.0">
                                                               <columns>
                                                                 <TableColumn fx:id="clNoRek1" prefWidth="180.0" text="No. Rekening" />
                                                                 <TableColumn fx:id="colSaldo" prefWidth="370.0" text="Saldo" />
@@ -138,22 +132,32 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="244.0" prefWidth="513.0" style="-fx-background-color: #14213d;">
                                                          <children>
-                                                            <TextField fx:id="tfNewId" disable="true" layoutX="67.0" layoutY="39.0" prefHeight="30.0" prefWidth="260.0" promptText="ID Nasabah">
+                                                            <TextField fx:id="tfNewId" disable="true" layoutX="67.0" layoutY="14.0" prefHeight="30.0" prefWidth="260.0" promptText="ID Nasabah">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <TextField fx:id="tfNewNoRek" disable="true" layoutX="67.0" layoutY="82.0" prefHeight="30.0" prefWidth="260.0" promptText="No. Rekening Baru">
+                                                            <TextField fx:id="tfNewNoRek" disable="true" layoutX="67.0" layoutY="51.0" prefHeight="30.0" prefWidth="260.0" promptText="No. Rekening Baru">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <TextField fx:id="tfNewSaldo" layoutX="67.0" layoutY="126.0" prefHeight="30.0" prefWidth="260.0" promptText="Saldo Baru">
+                                                            <TextField fx:id="tfNewSaldo" layoutX="67.0" layoutY="92.0" prefHeight="30.0" prefWidth="260.0" promptText="Saldo Baru">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <Button fx:id="btAddRek" layoutX="67.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleAddAccountButton" prefHeight="30.0" prefWidth="260.0" text="Tambah Rekening Baru">
+                                                            <Button fx:id="btAddRek" layoutX="67.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleAddAccountButton" prefHeight="30.0" prefWidth="260.0" text="Tambah Rekening Baru">
                                                                <font>
                                                                   <Font name="Microsoft Sans Serif" size="11.0" />
                                                                </font></Button>
+                                                            <Button fx:id="btDeposit" layoutX="67.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleDeposit" prefHeight="30.0" prefWidth="114.0" text="Deposit">
+                                                               <font>
+                                                                  <Font name="Microsoft Sans Serif" size="11.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="btWr" layoutX="203.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleWr" prefHeight="30.0" prefWidth="124.0" text="Withdraw">
+                                                               <font>
+                                                                  <Font name="Microsoft Sans Serif" size="11.0" />
+                                                               </font>
+                                                            </Button>
                                                          </children>
                                                       </AnchorPane>
                                                    </children>
@@ -266,22 +270,32 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="244.0" prefWidth="513.0" style="-fx-background-color: #14213d;">
                                                          <children>
-                                                            <TextField fx:id="tfNewId1" disable="true" layoutX="67.0" layoutY="38.0" prefHeight="30.0" prefWidth="260.0" promptText="ID Nasabah">
+                                                            <TextField fx:id="tfNewId1" disable="true" layoutX="67.0" layoutY="24.0" prefHeight="30.0" prefWidth="260.0" promptText="ID Nasabah">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <TextField fx:id="tfNewNoRek1" disable="true" layoutX="67.0" layoutY="81.0" prefHeight="30.0" prefWidth="260.0" promptText="No. Rekening Baru">
+                                                            <TextField fx:id="tfNewNoRek1" disable="true" layoutX="67.0" layoutY="62.0" prefHeight="30.0" prefWidth="260.0" promptText="No. Rekening Baru">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <TextField fx:id="tfNewSaldo1" layoutX="67.0" layoutY="125.0" prefHeight="30.0" prefWidth="260.0" promptText="Saldo Baru">
+                                                            <TextField fx:id="tfNewSaldo1" layoutX="67.0" layoutY="107.0" prefHeight="30.0" prefWidth="260.0" promptText="Saldo Baru">
                                                                <font>
                                                                   <Font name="Marlett" size="11.5" />
                                                                </font></TextField>
-                                                            <Button fx:id="btAddRek1" contentDisplay="CENTER" layoutX="67.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleAddCorpAccountButton" prefHeight="30.0" prefWidth="260.0" text="Tambah Rekening">
+                                                            <Button fx:id="btAddRek1" contentDisplay="CENTER" layoutX="67.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleAddCorpAccountButton" prefHeight="30.0" prefWidth="260.0" text="Tambah Rekening">
                                                                <font>
                                                                   <Font name="Microsoft Sans Serif" size="11.0" />
                                                                </font></Button>
+                                                            <Button fx:id="btWr1" contentDisplay="CENTER" layoutX="209.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleWr1" prefHeight="30.0" prefWidth="118.0" text="Withdraw">
+                                                               <font>
+                                                                  <Font name="Microsoft Sans Serif" size="11.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="btDeposit1" contentDisplay="CENTER" layoutX="67.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleDeposit1" prefHeight="30.0" prefWidth="129.0" text="Deposit">
+                                                               <font>
+                                                                  <Font name="Microsoft Sans Serif" size="11.0" />
+                                                               </font>
+                                                            </Button>
                                                          </children>
                                                       </AnchorPane>
                                                    </children>

@@ -56,7 +56,7 @@ public class NasabahDataModel {
     public void addNasabah(Perusahaan perusahaan) throws SQLException{
         String insertNasabah = "INSERT INTO Nasabah (idNasabah, nama, alamat)"
                 + " VALUES (?,?,?)";
-        String insertPerusahaan = "INSERT INTO  (idNasabah, nib)"
+        String insertPerusahaan = "INSERT INTO Perusahaan (idNasabah, nib)"
                 + " VALUES (?,?)";
         String insertRekening = "INSERT INTO Rekening (noRekening, saldo, idNasabah)" 
                 + " VALUES (?,?,?)";
@@ -165,4 +165,25 @@ public class NasabahDataModel {
        stmtPerusahaan.execute();
        
    }
+   public void tambahSaldo(Rekening rek, double jumlah) throws SQLException{
+        String insertNasabah = "UPDATE Rekening "
+                + "SET saldo = ? "
+                + "WHERE noRekening = ?";
+        
+        PreparedStatement stmtNasabah = conn.prepareStatement(insertNasabah);
+        stmtNasabah.setDouble(1, (rek.getSaldo() + jumlah));
+        stmtNasabah.setInt(2, rek.getNoRekening());
+        stmtNasabah.execute();
+    }
+    
+    public void tarikSaldo(Rekening rek, double jumlah) throws SQLException{
+        String insertNasabah = "UPDATE Rekening "
+                + "SET saldo = ? "
+                + "WHERE noRekening = ?";
+        
+        PreparedStatement stmtNasabah = conn.prepareStatement(insertNasabah);
+        stmtNasabah.setDouble(1, (rek.getSaldo() - jumlah));
+        stmtNasabah.setInt(2, rek.getNoRekening());
+        stmtNasabah.execute();
+    }
 }

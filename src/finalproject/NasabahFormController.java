@@ -28,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class NasabahFormController implements Initializable {
 
-@FXML
+    @FXML
     private TextField tfId;
 
     @FXML
@@ -166,7 +166,77 @@ public class NasabahFormController implements Initializable {
     @FXML
     private Label lblDBStatus;
     
+    @FXML
+    private Button btDeposit;
+    
+    @FXML
+    private Button btWr;
+    
+    @FXML
+    private Button btDeposit1;
+    
+    @FXML
+    private Button btWr1;
+    
     NasabahDataModel nfc;
+    
+    @FXML
+    void handleDeposit(ActionEvent event){
+        Rekening rek = tblRekening.getSelectionModel().getSelectedItem();
+         try {
+             nfc.tambahSaldo(rek, Double.parseDouble(tfNewSaldo.getText()));
+             btReload.fire();
+             viewDataRekening(Integer.parseInt(tfNewId.getText()));
+             tfNewSaldo.setText("");
+         } catch (SQLException ex) {
+             Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+    
+    @FXML
+    void handleDeposit1(ActionEvent event){
+        Rekening rek = tblRekeningP.getSelectionModel().getSelectedItem();
+         try {
+             nfc.tambahSaldo(rek, Double.parseDouble(tfNewSaldo1.getText()));
+             btReload1.fire();
+             viewDataRekeningP(Integer.parseInt(tfNewId1.getText()));
+             tfNewSaldo1.setText("");
+         } catch (SQLException ex) {
+             Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+    
+    @FXML
+    void handleWr(ActionEvent event){
+        Rekening rek = tblRekening.getSelectionModel().getSelectedItem();
+        
+        if (rek.getSaldo() >= Double.parseDouble(tfNewSaldo.getText())){
+            try {
+                nfc.tarikSaldo(rek, Double.parseDouble(tfNewSaldo.getText()));
+                btReload.fire();
+                viewDataRekening(Integer.parseInt(tfNewId.getText()));
+                tfNewSaldo.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    @FXML
+    void handleWr1(ActionEvent event){
+        Rekening rek = tblRekeningP.getSelectionModel().getSelectedItem();
+        
+        if (rek.getSaldo() >= Double.parseDouble(tfNewSaldo1.getText())){
+            try {
+                nfc.tarikSaldo(rek, Double.parseDouble(tfNewSaldo1.getText()));
+                btReload1.fire();
+                viewDataRekeningP(Integer.parseInt(tfNewId1.getText()));
+                tfNewSaldo1.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
    @FXML
     void handleAddAccountButton(ActionEvent event) {
@@ -201,7 +271,6 @@ public class NasabahFormController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     @FXML
@@ -241,7 +310,7 @@ public class NasabahFormController implements Initializable {
                             Double.parseDouble(tfNewSaldo1.getText()));
             
             nfc.addRekening(Integer.parseInt(tfNewId1.getText()), rek);          
-            viewDataRekening(Integer.parseInt(tfNewId1.getText()));
+            viewDataRekeningP(Integer.parseInt(tfNewId1.getText()));
             btReload1.fire();
             tfNewSaldo1.setText("");
             
@@ -302,6 +371,8 @@ public class NasabahFormController implements Initializable {
             lblDBStatus.setText(nfc.conn == null ? "Not Connected" : "Connected");
             btClear.fire();
             btReload.fire();
+            btClear1.fire();
+            btReload1.fire();
         } catch (SQLException ex) {
             Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -314,6 +385,19 @@ public class NasabahFormController implements Initializable {
                 tfNewId.setText(""+holder.getIdNasabah());
                 try {
                     tfNewNoRek.setText(""+nfc.nextRekeningNumber(holder.getIdNasabah()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        tblNasabahP.getSelectionModel().selectedIndexProperty().addListener(listener->{
+            if (tblNasabahP.getSelectionModel().getSelectedItem()!=null){
+                Perusahaan holder =  tblNasabahP.getSelectionModel().getSelectedItem();
+                viewDataRekeningP(holder.getIdNasabah());
+                btAddRek1.setDisable(false);
+                tfNewId1.setText(""+holder.getIdNasabah());
+                try {
+                    tfNewNoRek1.setText(""+nfc.nextRekeningNumber(holder.getIdNasabah()));
                 } catch (SQLException ex) {
                     Logger.getLogger(NasabahFormController.class.getName()).log(Level.SEVERE, null, ex);
                 }
