@@ -4,29 +4,7 @@ Nama Anggota:
 2. Naufal Anbial Falah  (2017051072) - menghubungkan dengan database dan desain javaFX
 3. Rizqy Farhan Thoriq  (0620101078) - update class agar kompatibel dengan javaFX
 
-<!-- ER Diagram
-
-erDiagram
-          Nasabah ||..|| Individu : is
-          Nasabah ||--|| Perusahaan : is
-          Nasabah ||--|{ Rekening: "has"
-          Nasabah {
-            int idNasabah
-            string nama
-            string alamat
-          }
-          Individu{
-            string nik
-            string npwp
-          }
-          Perusahaan{
-            string nib
-          }
-          Rekening{
-            int noRekening
-            double saldo
-          }
- -->
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZXJEaWFncmFtXG4gICAgICAgICAgTmFzYWJhaCB8fC4ufHwgSW5kaXZpZHUgOiBpc1xuICAgICAgICAgIE5hc2FiYWggfHwtLXx8IFBlcnVzYWhhYW4gOiBpc1xuICAgICAgICAgIE5hc2FiYWggfHwtLXx7IFJla2VuaW5nOiBcImhhc1wiXG4gICAgICAgICAgTmFzYWJhaCB7XG4gICAgICAgICAgICBpbnQgaWROYXNhYmFoXG4gICAgICAgICAgICBzdHJpbmcgbmFtYVxuICAgICAgICAgICAgc3RyaW5nIGFsYW1hdFxuICAgICAgICAgIH1cbiAgICAgICAgICBJbmRpdmlkdXtcbiAgICAgICAgICAgIHN0cmluZyBuaWtcbiAgICAgICAgICAgIHN0cmluZyBucHdwXG4gICAgICAgICAgfVxuICAgICAgICAgIFBlcnVzYWhhYW57XG4gICAgICAgICAgICBzdHJpbmcgbmliXG4gICAgICAgICAgfVxuICAgICAgICAgIFJla2VuaW5ne1xuICAgICAgICAgICAgaW50IG5vUmVrZW5pbmdcbiAgICAgICAgICAgIGRvdWJsZSBzYWxkb1xuICAgICAgICAgIH0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGFyayJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)](https://mermaid.live/edit#eyJjb2RlIjoiZXJEaWFncmFtXG4gICAgICAgICAgTmFzYWJhaCB8fC4ufHwgSW5kaXZpZHUgOiBpc1xuICAgICAgICAgIE5hc2FiYWggfHwtLXx8IFBlcnVzYWhhYW4gOiBpc1xuICAgICAgICAgIE5hc2FiYWggfHwtLXx7IFJla2VuaW5nOiBcImhhc1wiXG4gICAgICAgICAgTmFzYWJhaCB7XG4gICAgICAgICAgICBpbnQgaWROYXNhYmFoXG4gICAgICAgICAgICBzdHJpbmcgbmFtYVxuICAgICAgICAgICAgc3RyaW5nIGFsYW1hdFxuICAgICAgICAgIH1cbiAgICAgICAgICBJbmRpdmlkdXtcbiAgICAgICAgICAgIHN0cmluZyBuaWtcbiAgICAgICAgICAgIHN0cmluZyBucHdwXG4gICAgICAgICAgfVxuICAgICAgICAgIFBlcnVzYWhhYW57XG4gICAgICAgICAgICBzdHJpbmcgbmliXG4gICAgICAgICAgfVxuICAgICAgICAgIFJla2VuaW5ne1xuICAgICAgICAgICAgaW50IG5vUmVrZW5pbmdcbiAgICAgICAgICAgIGRvdWJsZSBzYWxkb1xuICAgICAgICAgIH0iLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGFya1wiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
 
 Program sistem nasabah yang digunakan untuk menambahkan data nasabah individu maupun perusahaan.
 
