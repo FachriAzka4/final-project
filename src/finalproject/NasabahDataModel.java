@@ -141,7 +141,7 @@ public class NasabahDataModel {
        String sql="SELECT MAX(idNasabah) from Nasabah";
        ResultSet rs = conn.createStatement().executeQuery(sql);
        while (rs.next()){
-               return rs.getInt(1)==0?1000001:rs.getInt(1)+1;
+               return rs.getInt(1)==0?1000001:rs.getInt(1)+1;// menambahkan 1 pada nomor rekening untuk rekening baru
            }
        return 1000001;
    }
