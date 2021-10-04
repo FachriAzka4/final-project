@@ -7,5 +7,3 @@ Nama Anggota:
 Program sistem nasabah yang digunakan untuk menambahkan data nasabah individu maupun perusahaan.
 
 ![SS.01.00](image_2021-10-04_173605.png)
-
-![SS.01.00](image_2021-10-02_204959.png)
