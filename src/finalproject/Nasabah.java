@@ -15,7 +15,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @author theen
  */
 public abstract class Nasabah {
-    private StringProperty nama;
+    private StringProperty nama; // dideklarasikan nama dan alamat dengan StringProperty untuk implementasi properti yang membungkus String
     private IntegerProperty idNasabah;
     private StringProperty alamat;
     ArrayList <Rekening> rekening = new ArrayList<Rekening>();
